@@ -8,6 +8,7 @@ const logger = require('morgan');
 const path = require('path');
 
 const appConfig = require('./config/app');
+const initializeCore = require('./core/initialize');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(initializeCore);
 
 app.get('/', (req, res) => {
   res.jsend.success({

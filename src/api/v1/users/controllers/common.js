@@ -6,7 +6,7 @@ const services = require('../services');
 const controllers = {
   register: (req, res) => {
     co(function* _() {
-      const user = yield services.user.create({
+      const user = yield services.user.createWithEncryptPassword({
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,

@@ -1,6 +1,9 @@
 # nodejs-api-skeleton
 Nodejs API skeleton
 
+# Default Feature
+1. Users
+
 # Sequelize
 1. Create Models
 node_modules/.bin/sequelize model:create --name user --attributes first_name:string,last_name:string,bio:text --models-path src/api/v1/users/services --underscored

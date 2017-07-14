@@ -37,11 +37,13 @@ User.hiddenAttributes = ['password'];
  * Create with ecrypt password
  * @param data
  */
-User.createWithEncryptPassword = data => this.create({
-  email: data.email,
-  username: data.username,
-  password: bcrypt.hashSync(data.password || '', 10),
-});
+User.createWithEncryptPassword = function _(data) {
+  return this.create({
+    email: data.email,
+    username: data.username,
+    password: bcrypt.hashSync(data.password || '', 10),
+  })
+};
 
 /**
  * @param {string} email
