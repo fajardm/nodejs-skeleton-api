@@ -2,6 +2,7 @@
 Nodejs API skeleton
 
 # Default Feature
+1. Sequelize
 1. Users
 
 # Sequelize
