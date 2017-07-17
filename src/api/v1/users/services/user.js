@@ -2,9 +2,7 @@ const bcrypt = require('bcrypt');
 const path = require('path');
 const Sequelize = require('sequelize');
 
-const pathToDatabase = path.resolve('src', 'core/database');
-
-const db = require(pathToDatabase);
+const db = require(path.resolve('src', 'core/database'));
 
 const User = db.define('user', {
   id: {
