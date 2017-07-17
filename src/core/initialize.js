@@ -4,7 +4,7 @@ const validate = require('validate.js');
 
 module.exports = (req, res, next) => {
   // add custom validators
-  validate.validators.recordExists = function _(value, options, key, attributes) {
+  validate.validators.recordExists = function __(value, options, key, attributes) {
     const where = {};
     where[key] = value;
 
@@ -23,6 +23,16 @@ module.exports = (req, res, next) => {
       })
         .catch(() => resolve('exists'));
     });
+  };
+
+  validate.validators.presenceDepend = function __(value, options, key, attributes) {
+    if (!value && _.get(attributes, options.field) === options.eq) {
+      return {
+        presence: true,
+      };
+    }
+
+    return null;
   };
 
   next();
