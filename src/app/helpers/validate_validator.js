@@ -3,6 +3,7 @@ const validate = require('validate.js');
 
 module.exports = (req, res, next) => {
   // add custom validators
+  // eslint-disable-next-line no-unused-vars
   validate.validators.recordExists = function __(value, options, key, attributes) {
     const where = {};
     where[key] = value;

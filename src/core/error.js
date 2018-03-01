@@ -7,9 +7,7 @@ module.exports = (app) => {
   /**
    * Handler 404
    */
-  app.use((req, res) => {
-    return res.status(httpStatus.NOT_FOUND).jsend.fail('not found');
-  });
+  app.use((req, res) => res.status(httpStatus.NOT_FOUND).jsend.fail('not found'));
 
   /**
    * Handler 500
