@@ -1,9 +1,7 @@
-const app = require('./app');
-const database = require('./database');
-const server = require('./server');
+const APP = require('./app');
+const DATABASE = require('./database');
+const SERVER = require('./server');
 
-module.exports = {
-  app,
-  database,
-  server,
-};
+exports.APP = APP;
+exports.DATABASE = DATABASE;
+exports.SERVER = SERVER;
