@@ -1,12 +1,9 @@
-const path = require('path');
 const Sequelize = require('sequelize');
 
-const db = require(path.resolve('src', 'core/database'));
-const userServices = require(path.resolve('src', 'api/v1/users/services'));
+const { sequelize } = require('../../helpers');
 
-const oauthClient = require('./oauth_client');
 
-const OauthToken = db.define('oauth_token', {
+const OauthToken = sequelize.define('oauth_token', {
   id: {
     primaryKey: true,
     type: Sequelize.DataTypes.UUID,

@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const config = require('../../config/index');
 
 const db = _.get(config.DATABASE, config.APP.ENV);
-const { Op } = Sequelize.Op;
+const { Op } = Sequelize;
 const operatorsAliases = {
   $eq: Op.eq,
   $ne: Op.ne,

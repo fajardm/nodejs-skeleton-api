@@ -58,6 +58,7 @@
 //
 // module.exports = models;
 /* eslint-disable no-console */
+require('dotenv').config()
 const app = require('./core');
 const config = require('./config');
 

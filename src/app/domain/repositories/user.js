@@ -72,7 +72,7 @@ user.comparePassword = (password, hashPassword) => bcrypt.compareSync(password, 
 /**
  * Get user
  */
-user.get = () => models.OauthClient.find(queries);
+user.get = () => models.User.find(queries);
 
 exports.create = user.create;
 exports.comparePassword = user.comparePassword;

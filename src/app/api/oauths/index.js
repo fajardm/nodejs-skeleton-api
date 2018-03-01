@@ -5,7 +5,7 @@ const validations = require('./validations/index');
 
 app.post('/token', validations.token, middlewares.oauth.token());
 
-app.post('/authorise', middlewares.oauth.authenticate(), (req, res) => {
+app.post('/secret', middlewares.oauth.authenticate(), (req, res) => {
   res.send('Secret area');
 });
 

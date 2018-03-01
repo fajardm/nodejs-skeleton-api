@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    dialect: process.env.DB_DIALECT || 'mysql',
+    dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_DATABASE || '',
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',
@@ -8,7 +8,7 @@ module.exports = {
     seederStorage: 'sequelize',
   },
   test: {
-    dialect: process.env.DB_DIALECT || 'mysql',
+    dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_DATABASE || '',
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',
@@ -16,7 +16,7 @@ module.exports = {
     seederStorage: 'sequelize',
   },
   production: {
-    dialect: process.env.DB_DIALECT || 'mysql',
+    dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_DATABASE || '',
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',

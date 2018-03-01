@@ -1,6 +1,4 @@
-const path = require('path');
-
-const validate = require(path.resolve('src', 'core/validate.js'));
+const { validate } = require('../../../helpers');
 
 const constraints = require('./constraints');
 

@@ -1,5 +1,5 @@
 const httpStatus = require('http-status-codes');
-const validate = require('./');
+const validate = require('validate.js');
 
 module.exports = {
   /**

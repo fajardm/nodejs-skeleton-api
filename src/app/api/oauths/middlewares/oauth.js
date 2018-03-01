@@ -27,9 +27,9 @@ module.exports = new OauthServer({
       if (res) {
         return {
           accessToken: res.access_token,
-          client_id: res.oauth_client.id,
           accessTokenExpiresAt: res.access_token_expired_at,
-          user_id: res.user.id,
+          client: { id: res.oauth_client.id },
+          user: { id: res.user.id },
         };
       }
 
@@ -43,9 +43,9 @@ module.exports = new OauthServer({
      * @param {object} client
      * @param {object} user
      *
-     * @return {Promise.<object|boolean>}
+     * @return {Promise.<object|boolean>} Return must camel case based on library
      */
-    saveAccessToken: async (token, client, user) => {
+    saveToken: async (token, client, user) => {
       const res = await OauthTokenRepo.create({
         access_token: token.accessToken,
         access_token_expired_at: token.accessTokenExpiresAt,
@@ -61,8 +61,8 @@ module.exports = new OauthServer({
           accessTokenExpiresAt: res.access_token_expired_at,
           refreshToken: res.refresh_token,
           refreshTokenExpiresAt: res.refresh_token_expired_at,
-          client_id: res.client_id,
-          user_id: res.user_id,
+          client: { id: res.client_id },
+          user: { id: res.user_id },
         };
       }
 
@@ -84,11 +84,7 @@ module.exports = new OauthServer({
       }).get();
 
       if (res) {
-        return {
-          clientId: res.id,
-          clientSecret: res.secret_key,
-          grants: res.grants,
-        };
+        return res;
       }
 
       return false;
@@ -105,7 +101,7 @@ module.exports = new OauthServer({
     getUser: async (id, password) => {
       const res = await UserRepo.findByEmailOrUsername(id, id).get();
 
-      if (res && UserRepo.comparePassword(password)) {
+      if (res && UserRepo.comparePassword(password, res.password)) {
         return res;
       }
 
@@ -131,8 +127,8 @@ module.exports = new OauthServer({
         return {
           refreshToken: res.refresh_token,
           refreshTokenExpiresAt: res.refresh_token_expired_at,
-          client_id: res.oauth_client.id,
-          user_id: res.user.id,
+          client: { id: res.oauth_client.id },
+          user: { id: res.user.id },
         };
       }
 

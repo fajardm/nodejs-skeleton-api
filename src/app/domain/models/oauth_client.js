@@ -1,9 +1,8 @@
-const path = require('path');
 const Sequelize = require('sequelize');
 
-const db = require(path.resolve('src', 'core/database'));
+const { sequelize } = require('../../helpers');
 
-const OauthClient = db.define('oauth_client', {
+const OauthClient = sequelize.define('oauth_client', {
   id: {
     primaryKey: true,
     type: Sequelize.DataTypes.UUID,

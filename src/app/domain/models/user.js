@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
-const db = require('../../helpers/sequelize');
+const { sequelize } = require('../../helpers');
 
-const User = db.define('user', {
+const User = sequelize.define('user', {
   id: {
     primaryKey: true,
     type: Sequelize.DataTypes.UUID,

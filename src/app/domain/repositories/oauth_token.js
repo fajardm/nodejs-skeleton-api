@@ -54,7 +54,7 @@ oauthToken.include = (relations) => {
   };
 };
 
-oauthToken.destroy = () => models.OauthToken.destroy(queries.where);
+oauthToken.destroy = () => models.OauthToken.destroy(queries);
 
 /**
  * Get oauth token
@@ -64,5 +64,5 @@ oauthToken.get = () => models.OauthToken.find(queries);
 exports.create = oauthToken.create;
 exports.destroy = oauthToken.destroy;
 exports.find = oauthToken.find;
-exports.OauthClient = oauthToken.oauthClient;
+exports.OauthClient = models.OauthClient;
 exports.User = models.User;
