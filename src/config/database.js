@@ -1,26 +1,24 @@
-require('dotenv').config();
-
 module.exports = {
   development: {
-    dialect: 'postgres',
-    database: `${process.env.DB_DATABASE}_development` || '',
-    host: process.env.DB_HOST || '',
+    dialect: process.env.DB_DIALECT || 'postgres',
+    database: process.env.DB_DATABASE || '',
+    host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',
     password: process.env.DB_PASSWORD || '',
     seederStorage: 'sequelize',
   },
   test: {
-    dialect: 'postgres',
-    database: `${process.env.DB_DATABASE}_test` || '',
-    host: process.env.DB_HOST || '',
+    dialect: process.env.DB_DIALECT || 'postgres',
+    database: process.env.DB_DATABASE || '',
+    host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',
     password: process.env.DB_PASSWORD || '',
     seederStorage: 'sequelize',
   },
   production: {
-    dialect: 'postgres',
+    dialect: process.env.DB_DIALECT || 'postgres',
     database: process.env.DB_DATABASE || '',
-    host: process.env.DB_HOST || '',
+    host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USERNAME || '',
     password: process.env.DB_PASSWORD || '',
     seederStorage: 'sequelize',
